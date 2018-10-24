@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Masonry (1.1.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -23,20 +24,23 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Masonry
   - SDWebImage
   - YYKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Masonry
     - SDWebImage
     - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 110cc6b169d40727653844cd53694523cd3bf292
+PODFILE CHECKSUM: 80e9ef2e43a859af4e42766af47587730cf0b177
 
 COCOAPODS: 1.5.3

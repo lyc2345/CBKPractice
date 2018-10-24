@@ -6,6 +6,7 @@ def common_pods
   pod 'AFNetworking'
   pod 'SDWebImage'
   pod 'YYKit'
+  pod 'Masonry'
 
 end
 
