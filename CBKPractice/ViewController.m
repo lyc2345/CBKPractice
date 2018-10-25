@@ -35,7 +35,9 @@ static NSString *headerIdentifier = @"animal_header";
   [self fetchAnimals];
 }
 
+
 // MARK: Set up
+
 -(void)setup {
   self.zooManager = [ZooDataManager shared];
 }
@@ -48,20 +50,13 @@ static NSString *headerIdentifier = @"animal_header";
   [_tableView registerNib: [UINib nibWithNibName: NSStringFromClass([AnimalCell class])
                                           bundle: nil]
    forCellReuseIdentifier: cellIdentifier];
-  [_tableView registerNib: [UINib nibWithNibName: NSStringFromClass([AnimalHeader class])
-                                          bundle: nil] forHeaderFooterViewReuseIdentifier: headerIdentifier];
   
-  self.header = (AnimalHeader *)[[NSBundle mainBundle] loadNibNamed: NSStringFromClass([AnimalHeader class])
-                                                              owner: self
-                                                            options: nil].firstObject;
-  _tableView.tableHeaderView = self.header;
-  
-  _tableView.estimatedRowHeight = 300;
+  _tableView.estimatedRowHeight = 50;
   _tableView.rowHeight = UITableViewAutomaticDimension;
-  _tableView.sectionHeaderHeight = 50;
-  
+
   _tableView.separatorColor = [UIColor clearColor];
   _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  _tableView.backgroundColor = [UIColor clearColor];
 }
 
 -(void)fetchAnimals {
@@ -77,16 +72,13 @@ static NSString *headerIdentifier = @"animal_header";
   }];
 }
 
+
 // MARK: UITableViewDelegate
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-  return 200;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   NSLog(@"Did select index: %ld", (long)indexPath.row);
 }
+
 
 // MARK: UITableViewDataSource
 
@@ -94,13 +86,6 @@ static NSString *headerIdentifier = @"animal_header";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return self.zooManager.animals.count;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  AnimalHeader *header = (AnimalHeader *)[tableView dequeueReusableHeaderFooterViewWithIdentifier: headerIdentifier];
-  header.titleLabel.text = @"Sticky";
-  
-  return header;
 }
 
 //- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -125,6 +110,17 @@ static NSString *headerIdentifier = @"animal_header";
   [cell bindAnimal: animal];
   
   return cell;
+}
+
+
+// MARK: UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  [self.scrollViewBridge scrollViewDidScroll: scrollView];
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
+  [self.scrollViewBridge scrollViewDidScrollToTop: scrollView];
 }
 
 @end

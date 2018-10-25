@@ -1,5 +1,5 @@
 //
-//  AnimalHeader.h
+//  UIScrollViewBridge.h
 //  CBKPractice
 //
 //  Created by Stan Liu on 2018/10/25.
@@ -10,10 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AnimalHeader : UITableViewHeaderFooterView
+@protocol UIScrollViewBridge <UIScrollViewDelegate>
 
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 

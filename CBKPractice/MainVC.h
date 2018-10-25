@@ -1,5 +1,5 @@
 //
-//  AnimalHeader.h
+//  MainVC.h
 //  CBKPractice
 //
 //  Created by Stan Liu on 2018/10/25.
@@ -10,10 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AnimalHeader : UITableViewHeaderFooterView
-
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIImageView *imageView;
+@interface MainVC : UIViewController
 
 @end
 
