@@ -120,11 +120,22 @@ static NSString *cellIdentifier = @"animal_cell";
 // MARK: UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  [self.scrollViewBridge scrollViewDidScroll: scrollView];
+  if ([self.scrollViewBridge respondsToSelector: @selector(scrollViewDidScroll:)]) {
+    [self.scrollViewBridge scrollViewDidScroll: scrollView];
+  }
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+  if ([self.scrollViewBridge respondsToSelector: @selector(scrollViewDidEndDecelerating:)]) {
+    [self.scrollViewBridge scrollViewDidEndDecelerating: scrollView];
+  }
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-  
+  if ([self.scrollViewBridge respondsToSelector: @selector(scrollViewDidEndDragging:willDecelerate:)]) {
+    [self.scrollViewBridge scrollViewDidEndDragging: scrollView willDecelerate: decelerate];
+  }
+
   // UITableView only moves in one direction, y axis
   CGFloat offset = scrollView.contentOffset.y;
   CGFloat absoluteBottom = scrollView.contentSize.height - scrollView.frame.size.height;
@@ -141,7 +152,9 @@ static NSString *cellIdentifier = @"animal_cell";
 }
 
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
-  [self.scrollViewBridge scrollViewDidScrollToTop: scrollView];
+  if ([self.scrollViewBridge respondsToSelector: @selector(scrollViewDidScrollToTop:)]) {
+    [self.scrollViewBridge scrollViewDidScrollToTop: scrollView];
+  }
 }
 
 @end

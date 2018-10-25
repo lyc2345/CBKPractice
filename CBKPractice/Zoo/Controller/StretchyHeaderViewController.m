@@ -58,14 +58,22 @@ static CGFloat minHeaderHeight = 0;
 
 -(void)animateStretchyHeaderHeight:(CGFloat)height {
   self.stretchyHeaderHeightConstraint.constant = height;
-  [UIView animateWithDuration: 0.3
+  [UIView animateWithDuration: 0.4
                         delay: 0.0
-       usingSpringWithDamping: 0.6
-        initialSpringVelocity: 0.4
+       usingSpringWithDamping: 1.0
+        initialSpringVelocity: 0.6
                       options: UIViewAnimationOptionCurveEaseIn
                    animations:^{
                      [self.view layoutIfNeeded];
                    } completion: nil];
+}
+
+-(void)automaticallyCollapseOrNot {
+  if (self.stretchyHeaderHeightConstraint.constant > maxHeaderHeight / 2) {
+    [self animateStretchyHeaderHeight: maxHeaderHeight];
+  } else {
+    [self animateStretchyHeaderHeight: minHeaderHeight];
+  }
 }
 
 // MARK: UIScrollViewDelegate
@@ -99,6 +107,15 @@ static CGFloat minHeaderHeight = 0;
     
     self.lastScrollOffset = scrollView.contentOffset;
   }
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+  if (decelerate) return;
+  [self automaticallyCollapseOrNot];
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+  [self automaticallyCollapseOrNot];
 }
 
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
