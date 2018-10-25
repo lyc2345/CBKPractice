@@ -6,25 +6,22 @@
 //  Copyright © 2018 Stan Liu. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ListAnimalsViewController.h"
 #import "ZooDataManager.h"
-#import "AnimalHeader.h"
 #import "AnimalCell.h"
 
 static NSString *cellIdentifier = @"animal_cell";
-static NSString *headerIdentifier = @"animal_header";
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource> {
+@interface ListAnimalsViewController () <UITableViewDelegate, UITableViewDataSource> {
   
   __weak IBOutlet UITableView *_tableView;
 }
 
 @property (nonatomic, strong) ZooDataManager *zooManager;
-@property (nonatomic, strong) AnimalHeader *header;
 
 @end
 
-@implementation ViewController
+@implementation ListAnimalsViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];

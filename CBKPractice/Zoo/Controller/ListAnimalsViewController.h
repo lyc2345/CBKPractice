@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIScrollViewBridge.h"
 
-@interface ViewController : UIViewController
+@interface ListAnimalsViewController : UIViewController
 
 @property (weak, nonatomic) id<UIScrollViewBridge> scrollViewBridge;
 

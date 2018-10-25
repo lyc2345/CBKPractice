@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainVC : UIViewController
+@interface StretchyHeaderViewController : UIViewController
 
 @end
 

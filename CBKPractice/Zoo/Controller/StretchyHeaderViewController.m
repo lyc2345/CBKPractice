@@ -6,26 +6,27 @@
 //  Copyright © 2018 Stan Liu. All rights reserved.
 //
 
-#import "MainVC.h"
-#import "ViewController.h"
+#import "StretchyHeaderViewController.h"
+#import "ListAnimalsViewController.h"
+#import "UIView+Round.h"
 
 static CGFloat maxHeaderHeight = 220;
 static CGFloat minHeaderHeight = 0;
 
-@interface MainVC () <UIScrollViewBridge>
+@interface StretchyHeaderViewController () <UIScrollViewBridge>
 
 @property (weak, nonatomic) IBOutlet UILabel *coverLabel;
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stretchyHeaderHeightConstraint;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
-@property (weak, nonatomic) ViewController *subVC;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stretchyHeaderHeightConstraint;
+@property (weak, nonatomic) ListAnimalsViewController *listAnimalsViewController;
 
 @property (nonatomic, assign) CGPoint lastScrollOffset;
 
 @end
 
-@implementation MainVC
+@implementation StretchyHeaderViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -35,17 +36,23 @@ static CGFloat minHeaderHeight = 0;
 
 -(void)setup {
   self.coverLabel.text = @"Maria Sharapova";
-  self.coverLabel.textColor = [UIColor whiteColor];
+  self.coverLabel.textColor = [UIColor blackColor];
   self.headerLabel.text = @"I am a header";
   self.headerLabel.textColor = [UIColor whiteColor];
   
-  self.headerLabel.alpha = 0.0; // initial
+  self.headerLabel.alpha = 0.0; // initial hide header label
+  
+  [self.coverLabel shadow: [UIColor whiteColor]
+                   offset: CGSizeMake(1.0, 1.0)
+                   radius: 0.0
+                  opacity: 1.0];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString: NSStringFromClass([ViewController class])]) {
-    self.subVC = (ViewController *)[segue destinationViewController];
-    self.subVC.scrollViewBridge = self;
+  
+  if ([segue.identifier isEqualToString: NSStringFromClass([ListAnimalsViewController class])]) {
+    self.listAnimalsViewController = (ListAnimalsViewController *)[segue destinationViewController];
+    self.listAnimalsViewController.scrollViewBridge = self;
   }
 }
 
@@ -64,8 +71,7 @@ static CGFloat minHeaderHeight = 0;
 // MARK: UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  NSLog(@"Did scroll!");
-  
+
   if (scrollView.contentSize.height > maxHeaderHeight) {
     
     CGFloat absoluteTop = 0;
@@ -96,7 +102,6 @@ static CGFloat minHeaderHeight = 0;
 }
 
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
-  NSLog(@"Did scroll to top!");
   [self animateStretchyHeaderHeight: maxHeaderHeight];
 }
 
