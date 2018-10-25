@@ -35,7 +35,7 @@ static CGFloat minHeaderHeight = 0;
 }
 
 -(void)setup {
-  self.coverLabel.text = @"Maria Sharapova";
+  self.coverLabel.text = @"Taipei Zoo";
   self.coverLabel.textColor = [UIColor blackColor];
   self.headerLabel.text = @"I am a header";
   self.headerLabel.textColor = [UIColor whiteColor];
@@ -58,6 +58,7 @@ static CGFloat minHeaderHeight = 0;
 
 -(void)animateStretchyHeaderHeight:(CGFloat)height {
   self.stretchyHeaderHeightConstraint.constant = height;
+  [self animateLabelWithHeaderHeight: height];
   [UIView animateWithDuration: 0.4
                         delay: 0.0
        usingSpringWithDamping: 1.0
@@ -66,6 +67,13 @@ static CGFloat minHeaderHeight = 0;
                    animations:^{
                      [self.view layoutIfNeeded];
                    } completion: nil];
+}
+
+-(void)animateLabelWithHeaderHeight:(CGFloat)height {
+  
+  CGFloat ratio = height / maxHeaderHeight;
+  self.coverLabel.alpha = ratio > 0.2 ? ratio : 0.0;
+  self.headerLabel.alpha = 1 - ratio < 0.2 ? 0.0 : (1 - ratio);
 }
 
 -(void)automaticallyCollapseOrNot {
@@ -100,9 +108,7 @@ static CGFloat minHeaderHeight = 0;
     
     if (newHeight != self.stretchyHeaderHeightConstraint.constant) {
       self.stretchyHeaderHeightConstraint.constant = newHeight;
-      
-      self.coverLabel.alpha = newHeight / maxHeaderHeight;
-      self.headerLabel.alpha = 1 - (newHeight / maxHeaderHeight);
+      [self animateLabelWithHeaderHeight: newHeight];
     }
     
     self.lastScrollOffset = scrollView.contentOffset;
