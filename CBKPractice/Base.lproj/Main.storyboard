@@ -133,6 +133,7 @@
                     </view>
                     <connections>
                         <outlet property="_tableView" destination="CZ5-xL-DaF" id="eS9-og-7Fn"/>
+                        <outlet property="tableView" destination="CZ5-xL-DaF" id="ELP-pu-LnD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

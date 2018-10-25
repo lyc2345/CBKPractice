@@ -10,6 +10,7 @@
 		898CEFF5BFD2D614C3B73D4E /* libPods-CBKPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4558FF7C5D4EA596BBBA3442 /* libPods-CBKPractice.a */; };
 		A4B048EC7CEF5D45EDBB0796 /* libPods-CBKPracticeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D01C6672BCEB6C67C2A368C /* libPods-CBKPracticeTests.a */; };
 		F6042E062181F84200D3C287 /* StretchyHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6042E052181F84200D3C287 /* StretchyHeaderViewController.m */; };
+		F6042E172182324E00D3C287 /* UITableView+RefreshKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F6042E162182324E00D3C287 /* UITableView+RefreshKit.m */; };
 		F62ACA8F217F56450056A836 /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = F62ACA8E217F56450056A836 /* Animal.m */; };
 		F62ACA92217F56DA0056A836 /* ZooDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F62ACA91217F56DA0056A836 /* ZooDataManager.m */; };
 		F681F87C217DFA70006E6D2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F681F87B217DFA70006E6D2B /* AppDelegate.m */; };
@@ -48,6 +49,8 @@
 		F6042E042181F84200D3C287 /* StretchyHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StretchyHeaderViewController.h; sourceTree = "<group>"; };
 		F6042E052181F84200D3C287 /* StretchyHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StretchyHeaderViewController.m; sourceTree = "<group>"; };
 		F6042E072181F9CB00D3C287 /* UIScrollViewBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIScrollViewBridge.h; sourceTree = "<group>"; };
+		F6042E152182324E00D3C287 /* UITableView+RefreshKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+RefreshKit.h"; sourceTree = "<group>"; };
+		F6042E162182324E00D3C287 /* UITableView+RefreshKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RefreshKit.m"; sourceTree = "<group>"; };
 		F62ACA8D217F56450056A836 /* Animal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
 		F62ACA8E217F56450056A836 /* Animal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
 		F62ACA90217F56DA0056A836 /* ZooDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZooDataManager.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 			children = (
 				F6FB7EE42180DC2A00AD1F52 /* UIView+Round.h */,
 				F6FB7EE52180DC2A00AD1F52 /* UIView+Round.m */,
+				F6042E152182324E00D3C287 /* UITableView+RefreshKit.h */,
+				F6042E162182324E00D3C287 /* UITableView+RefreshKit.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				F681F87F217DFA70006E6D2B /* ListAnimalsViewController.m in Sources */,
 				F62ACA8F217F56450056A836 /* Animal.m in Sources */,
 				F6042E062181F84200D3C287 /* StretchyHeaderViewController.m in Sources */,
+				F6042E172182324E00D3C287 /* UITableView+RefreshKit.m in Sources */,
 				F62ACA92217F56DA0056A836 /* ZooDataManager.m in Sources */,
 				F6FB7EE62180DC2A00AD1F52 /* UIView+Round.m in Sources */,
 				F681F88A217DFA72006E6D2B /* main.m in Sources */,

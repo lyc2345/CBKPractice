@@ -10,11 +10,12 @@
 #import <AFNetworking/AFNetworking.h>
 
 static NSString *url_taipei_zoo = @"https://data.taipei/opendata/datalist/apiAccess?";
+static NSInteger fetch_per_time = 10;
 
 @interface ZooDataManager ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
-@property (nonatomic, strong) NSArray *_animals;
+@property (nonatomic, strong) NSMutableArray *_animals;
 
 @end
 
@@ -33,7 +34,7 @@ static NSString *url_taipei_zoo = @"https://data.taipei/opendata/datalist/apiAcc
 - (instancetype)init {
   self = [super init];
   if (self) {
-    self._animals = [NSArray array];
+    self._animals = [NSMutableArray array];
   }
   return self;
 }
@@ -46,7 +47,9 @@ static NSString *url_taipei_zoo = @"https://data.taipei/opendata/datalist/apiAcc
 
   NSDictionary *parameters = @{
                                @"scope": @"resourceAquire",
-                               @"rid": @"a3e2b221-75e0-45c1-8f97-75acbd43d613"
+                               @"rid": @"a3e2b221-75e0-45c1-8f97-75acbd43d613",
+                               @"limit": @(fetch_per_time),
+                               @"offset": @(self.animals.count)
                                };
   if (self.manager == nil) {
     self.manager = [AFHTTPSessionManager manager];
@@ -64,11 +67,10 @@ static NSString *url_taipei_zoo = @"https://data.taipei/opendata/datalist/apiAcc
                 Animal *animal = [Animal modelWithJSON: animalJSON];
                 [animals addObject: animal];
               }
-              self._animals = [NSArray arrayWithArray: (NSArray *)animals];
-              completion(nil, animals);
+              [self._animals addObjectsFromArray: animals];
+              completion(nil, self.animals);
               
             } failure:^(NSURLSessionTask *operation, NSError *error) {
-              self._animals = @[];
               completion(error, @[]);
             }];
 }

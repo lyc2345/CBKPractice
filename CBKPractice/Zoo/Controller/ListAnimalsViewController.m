@@ -9,15 +9,15 @@
 #import "ListAnimalsViewController.h"
 #import "ZooDataManager.h"
 #import "AnimalCell.h"
+#import "UITableView+RefreshKit.h"
 
 static NSString *cellIdentifier = @"animal_cell";
 
-@interface ListAnimalsViewController () <UITableViewDelegate, UITableViewDataSource> {
-  
-  __weak IBOutlet UITableView *_tableView;
-}
+@interface ListAnimalsViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) ZooDataManager *zooManager;
+@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
 
 @end
 
@@ -29,7 +29,7 @@ static NSString *cellIdentifier = @"animal_cell";
   [self setup];
   [self setupTableView];
   
-  [self fetchAnimals];
+  [self fetchAnimals: nil];
 }
 
 
@@ -54,18 +54,23 @@ static NSString *cellIdentifier = @"animal_cell";
   _tableView.separatorColor = [UIColor clearColor];
   _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   _tableView.backgroundColor = [UIColor clearColor];
+  
+  self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleGray];
+  [_tableView addSpinner: self.indicatorView];
 }
 
--(void)fetchAnimals {
+-(void)fetchAnimals:(void(^)(void))completion {
   
+  __weak typeof(self) weakSelf = self;
   [self.zooManager fetch:^(NSError * _Nonnull error, NSArray * _Nonnull animals) {
     
+    if (completion) { completion(); }
     if (error) {
       // Error handling
       return;
     }
     // handle data response
-    [self->_tableView reloadData];
+    [weakSelf.tableView reloadData];
   }];
 }
 
@@ -85,15 +90,16 @@ static NSString *cellIdentifier = @"animal_cell";
   return self.zooManager.animals.count;
 }
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//  AnimalCell * _Nonnull weakCell = (AnimalCell *)cell;
-//
-//  if (weakCell) {
-//    Animal *animal = self.zooManager.animals[indexPath.row];
-//    [weakCell bindAnimal: animal];
-//  }
-//}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+  if (self.zooManager.animals.count - 1 == indexPath.row) {
+    [tableView startSpinning];
+    __weak typeof(self) weakSelf = self;
+    [self fetchAnimals:^{
+      [weakSelf.tableView endSpinning];
+    }];
+  }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
