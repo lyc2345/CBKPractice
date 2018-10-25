@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 
 static NSString *url_taipei_zoo = @"https://data.taipei/opendata/datalist/apiAccess?";
-static NSInteger fetch_per_time = 10;
+static NSInteger fetch_per_time = 5;
 
 @interface ZooDataManager ()
 

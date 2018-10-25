@@ -90,16 +90,17 @@ static NSString *cellIdentifier = @"animal_cell";
   return self.zooManager.animals.count;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-
-  if (self.zooManager.animals.count - 1 == indexPath.row) {
-    [tableView startSpinning];
-    __weak typeof(self) weakSelf = self;
-    [self fetchAnimals:^{
-      [weakSelf.tableView endSpinning];
-    }];
-  }
-}
+// this buggy solution if animals count less than generate cells
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//  if (self.zooManager.animals.count - 1 == indexPath.row) {
+//    [tableView startSpinning];
+//    __weak typeof(self) weakSelf = self;
+//    [self fetchAnimals:^{
+//      [weakSelf.tableView endSpinning];
+//    }];
+//  }
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
@@ -111,7 +112,7 @@ static NSString *cellIdentifier = @"animal_cell";
   
   Animal *animal = self.zooManager.animals[indexPath.row];
   [cell bindAnimal: animal];
-  
+
   return cell;
 }
 
@@ -120,6 +121,23 @@ static NSString *cellIdentifier = @"animal_cell";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
   [self.scrollViewBridge scrollViewDidScroll: scrollView];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+  
+  // UITableView only moves in one direction, y axis
+  CGFloat offset = scrollView.contentOffset.y;
+  CGFloat absoluteBottom = scrollView.contentSize.height - scrollView.frame.size.height;
+  
+  if (absoluteBottom - offset <= 10) {
+    
+    // Change 10.0 to adjust the distance from bottom
+    [self.tableView startSpinning];
+    __weak typeof(self) weakSelf = self;
+    [self fetchAnimals:^{
+      [weakSelf.tableView endSpinning];
+    }];
+  }
 }
 
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
