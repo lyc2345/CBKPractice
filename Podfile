@@ -37,7 +37,9 @@ target 'CBKPractice' do
     common_pods
     
     # Pods for testing
-    pod 'Expecta'
+    #pod 'Specta'
+    #pod 'Expecta'
+    pod 'Kiwi'
     pod 'OCMock'
   end
   
