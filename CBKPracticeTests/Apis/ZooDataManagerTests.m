@@ -30,6 +30,7 @@ describe(@"ZooDataManager fetch", ^{
     [manager fetch:^(NSError * _Nonnull error, NSArray * _Nonnull animals) {
       [[expectFutureValue(error) shouldEventually] beNil];
       animalList = animals;
+      
       [[animals.firstObject should] beKindOfClass: [Animal class]];
     }];
     

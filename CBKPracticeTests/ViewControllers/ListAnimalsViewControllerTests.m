@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <Kiwi/Kiwi.h>
 #import "ListAnimalsViewController.h"
+#import "UITableViewSpy.h"
 #import "ZooDataManager.h"
 
 @interface ListAnimalsViewController (Testing)
@@ -17,16 +18,6 @@
 -(void)fetchAnimals:(void(^)(void))completion;
 @end
 
-@interface UITableViewSpy: UITableView
-@property (assign, nonatomic) NSInteger reloadCount;
-@end
-
-@implementation UITableViewSpy
--(void)reloadData {
-  [super reloadData];
-  self.reloadCount += 1;
-}
-@end
 
 SPEC_BEGIN(ListAnimalsViewControllerTests)
 
@@ -47,6 +38,11 @@ describe(@"ViewDidLoad", ^{
     [[listAnimalsVC.tableView should] equal: tableViewSpy]; // check is mocked
   });
   
+  // declares a local helper variable that is re-initialized before every example.
+  let(zooManager, ^id{
+    return [[ZooDataManager alloc] init];
+  });
+  
   it(@"should fetch data and reload tableView", ^{
     
     // When
@@ -56,6 +52,8 @@ describe(@"ViewDidLoad", ^{
     [[expectFutureValue(theValue(listAnimalsVC.zooManager.animals.count)) shouldEventually] equal: (theValue(30))];
     [[expectFutureValue(theValue(tableViewSpy.reloadCount)) shouldEventually] equal: (theValue(1))];
   });
+  
+  
 });
 
 SPEC_END
