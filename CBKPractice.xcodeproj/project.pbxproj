@@ -13,13 +13,13 @@
 		F6042E172182324E00D3C287 /* UITableView+RefreshKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F6042E162182324E00D3C287 /* UITableView+RefreshKit.m */; };
 		F62ACA8F217F56450056A836 /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = F62ACA8E217F56450056A836 /* Animal.m */; };
 		F62ACA92217F56DA0056A836 /* ZooDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F62ACA91217F56DA0056A836 /* ZooDataManager.m */; };
+		F66E837221842DEB00C166FE /* ZooDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F66E837121842DEB00C166FE /* ZooDataManagerTests.m */; };
 		F681F87C217DFA70006E6D2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F681F87B217DFA70006E6D2B /* AppDelegate.m */; };
 		F681F87F217DFA70006E6D2B /* ListAnimalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F681F87E217DFA70006E6D2B /* ListAnimalsViewController.m */; };
 		F681F882217DFA70006E6D2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F681F880217DFA70006E6D2B /* Main.storyboard */; };
 		F681F884217DFA72006E6D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F681F883217DFA72006E6D2B /* Assets.xcassets */; };
 		F681F887217DFA72006E6D2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F681F885217DFA72006E6D2B /* LaunchScreen.storyboard */; };
 		F681F88A217DFA72006E6D2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F681F889217DFA72006E6D2B /* main.m */; };
-		F681F894217DFA72006E6D2B /* CBKPracticeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F681F893217DFA72006E6D2B /* CBKPracticeTests.m */; };
 		F68AE436218095030037D5D2 /* AnimalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F68AE434218095030037D5D2 /* AnimalCell.m */; };
 		F68AE437218095030037D5D2 /* AnimalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68AE435218095030037D5D2 /* AnimalCell.xib */; };
 		F6FB7EE62180DC2A00AD1F52 /* UIView+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB7EE52180DC2A00AD1F52 /* UIView+Round.m */; };
@@ -27,6 +27,7 @@
 		F6FB7EEB2180DE5A00AD1F52 /* ShadowImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6FB7EEA2180DE5A00AD1F52 /* ShadowImageView.xib */; };
 		F6FB7EEE2180E86600AD1F52 /* AnimalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB7EED2180E86600AD1F52 /* AnimalHeader.m */; };
 		F6FB7EF22180F5E400AD1F52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6FB7EF12180F5E400AD1F52 /* Images.xcassets */; };
+		F6FE189921843AE30059EF1B /* AnimalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FE189821843AE30059EF1B /* AnimalTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		F62ACA8E217F56450056A836 /* Animal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
 		F62ACA90217F56DA0056A836 /* ZooDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZooDataManager.h; sourceTree = "<group>"; };
 		F62ACA91217F56DA0056A836 /* ZooDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZooDataManager.m; sourceTree = "<group>"; };
+		F66E837121842DEB00C166FE /* ZooDataManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZooDataManagerTests.m; sourceTree = "<group>"; };
 		F681F877217DFA70006E6D2B /* CBKPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBKPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F681F87A217DFA70006E6D2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F681F87B217DFA70006E6D2B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,7 +68,6 @@
 		F681F888217DFA72006E6D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F681F889217DFA72006E6D2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F681F88F217DFA72006E6D2B /* CBKPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBKPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F681F893217DFA72006E6D2B /* CBKPracticeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBKPracticeTests.m; sourceTree = "<group>"; };
 		F681F895217DFA72006E6D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F68AE433218095030037D5D2 /* AnimalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimalCell.h; sourceTree = "<group>"; };
 		F68AE434218095030037D5D2 /* AnimalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalCell.m; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		F6FB7EEC2180E86600AD1F52 /* AnimalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimalHeader.h; sourceTree = "<group>"; };
 		F6FB7EED2180E86600AD1F52 /* AnimalHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalHeader.m; sourceTree = "<group>"; };
 		F6FB7EF12180F5E400AD1F52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F6FE189821843AE30059EF1B /* AnimalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,10 +246,27 @@
 		F681F892217DFA72006E6D2B /* CBKPracticeTests */ = {
 			isa = PBXGroup;
 			children = (
-				F681F893217DFA72006E6D2B /* CBKPracticeTests.m */,
+				F6FE189B21843D2C0059EF1B /* Apis */,
+				F6FE189A21843D230059EF1B /* Models */,
 				F681F895217DFA72006E6D2B /* Info.plist */,
 			);
 			path = CBKPracticeTests;
+			sourceTree = "<group>";
+		};
+		F6FE189A21843D230059EF1B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6FE189821843AE30059EF1B /* AnimalTests.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F6FE189B21843D2C0059EF1B /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				F66E837121842DEB00C166FE /* ZooDataManagerTests.m */,
+			);
+			path = Apis;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,7 +431,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F681F894217DFA72006E6D2B /* CBKPracticeTests.m in Sources */,
+				F66E837221842DEB00C166FE /* ZooDataManagerTests.m in Sources */,
+				F6FE189921843AE30059EF1B /* AnimalTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
