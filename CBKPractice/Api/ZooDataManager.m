@@ -62,16 +62,16 @@ static NSInteger fetch_per_time = 30;
               
               NSDictionary *result = responseObject[@"result"];
               NSArray *results = result[@"results"];
-              NSMutableArray<Animal *> *animals = [NSMutableArray array];
+              NSMutableArray<Animal *> *tempAnimalList = [NSMutableArray array];
               for (NSDictionary *animalJSON in results) {
                 Animal *animal = [Animal modelWithJSON: animalJSON];
-                [animals addObject: animal];
+                [tempAnimalList addObject: animal];
               }
-              [self._animals addObjectsFromArray: animals];
+              [self._animals addObjectsFromArray: tempAnimalList];
               completion(nil, self.animals);
               
             } failure:^(NSURLSessionTask *operation, NSError *error) {
-              completion(error, @[]);
+              completion(error, nil);
             }];
 }
 

@@ -14,7 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Kiwi (3.0.0)
   - Masonry (1.1.0)
+  - OCMock (3.4.2)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -24,23 +26,29 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Kiwi
   - Masonry
+  - OCMock
   - SDWebImage
   - YYKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Kiwi
     - Masonry
+    - OCMock
     - SDWebImage
     - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  OCMock: ebe9ee1dca7fbed0ff9193ac0b3e2d8862ea56f6
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 80e9ef2e43a859af4e42766af47587730cf0b177
+PODFILE CHECKSUM: e7f84c4f32955012a9a567786b9d32e145a339fc
 
 COCOAPODS: 1.5.3

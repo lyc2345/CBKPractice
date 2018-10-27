@@ -136,6 +136,7 @@ static NSString *cellIdentifier = @"animal_cell";
     [self.scrollViewBridge scrollViewDidEndDragging: scrollView willDecelerate: decelerate];
   }
 
+  // Do load more...
   // UITableView only moves in one direction, y axis
   CGFloat offset = scrollView.contentOffset.y;
   CGFloat absoluteBottom = scrollView.contentSize.height - scrollView.frame.size.height;

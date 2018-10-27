@@ -56,9 +56,9 @@ static CGFloat minHeaderHeight = 0;
   }
 }
 
--(void)animateStretchyHeaderHeight:(CGFloat)height {
+-(void)animateStretchyHeaderWithHeight:(CGFloat)height {
   self.stretchyHeaderHeightConstraint.constant = height;
-  [self animateLabelWithHeaderHeight: height];
+  [self animateLabelWithHeight: height];
   [UIView animateWithDuration: 0.4
                         delay: 0.0
        usingSpringWithDamping: 1.0
@@ -69,7 +69,7 @@ static CGFloat minHeaderHeight = 0;
                    } completion: nil];
 }
 
--(void)animateLabelWithHeaderHeight:(CGFloat)height {
+-(void)animateLabelWithHeight:(CGFloat)height {
   
   CGFloat ratio = height / maxHeaderHeight;
   self.coverLabel.alpha = ratio > 0.2 ? ratio : 0.0;
@@ -78,16 +78,16 @@ static CGFloat minHeaderHeight = 0;
 
 -(void)automaticallyCollapseOrNot {
   if (self.stretchyHeaderHeightConstraint.constant > maxHeaderHeight / 2) {
-    [self animateStretchyHeaderHeight: maxHeaderHeight];
+    [self animateStretchyHeaderWithHeight: maxHeaderHeight];
   } else {
-    [self animateStretchyHeaderHeight: minHeaderHeight];
+    [self animateStretchyHeaderWithHeight: minHeaderHeight];
   }
 }
 
 // MARK: UIScrollViewDelegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  
   if (scrollView.contentSize.height > maxHeaderHeight) {
     
     CGFloat absoluteTop = 0;
@@ -108,7 +108,7 @@ static CGFloat minHeaderHeight = 0;
     
     if (newHeight != self.stretchyHeaderHeightConstraint.constant) {
       self.stretchyHeaderHeightConstraint.constant = newHeight;
-      [self animateLabelWithHeaderHeight: newHeight];
+      [self animateLabelWithHeight: newHeight];
     }
     
     self.lastScrollOffset = scrollView.contentOffset;
@@ -124,8 +124,8 @@ static CGFloat minHeaderHeight = 0;
   [self automaticallyCollapseOrNot];
 }
 
-- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
-  [self animateStretchyHeaderHeight: maxHeaderHeight];
+-(void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
+  [self animateStretchyHeaderWithHeight: maxHeaderHeight];
 }
 
 @end
