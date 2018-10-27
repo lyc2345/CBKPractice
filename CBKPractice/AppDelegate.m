@@ -11,7 +11,9 @@
 
 @interface AppDelegate ()
 
+#if DEBUG
 @property (strong, nonatomic) FBMemoryProfiler *memoryProfiler;
+#endif
 
 @end
 
@@ -21,9 +23,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
   
+#if DEBUG
   FBMemoryProfiler *memoryProfiler = [FBMemoryProfiler new];
   [memoryProfiler enable];
   _memoryProfiler = memoryProfiler;
+#endif
   
   return YES;
 }
