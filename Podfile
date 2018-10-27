@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
-#
-#
+
+platform :ios, '9.0'
+
 def common_pods
   pod 'AFNetworking'
   pod 'SDWebImage'
@@ -19,8 +19,13 @@ target 'CBKPractice' do
 
   target 'CBKPracticeTests' do
     inherit! :search_paths
-    # Pods for testing
+    
+    # common Pods
     common_pods
+    
+    # Pods for testing
+    pod 'Expecta'
+    pod 'OCMock'
   end
 
 end
