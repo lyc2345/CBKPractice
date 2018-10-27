@@ -14,6 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - FBAllocationTracker (0.1.5)
+  - FBMemoryProfiler (0.1.3):
+    - FBAllocationTracker (~> 0.1)
+    - FBRetainCycleDetector (~> 0.1)
+  - FBRetainCycleDetector (0.1.4)
   - Kiwi (3.0.0)
   - Masonry (1.1.0)
   - OCMock (3.4.2)
@@ -26,6 +31,9 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - FBAllocationTracker
+  - FBMemoryProfiler
+  - FBRetainCycleDetector
   - Kiwi
   - Masonry
   - OCMock
@@ -35,6 +43,9 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - FBAllocationTracker
+    - FBMemoryProfiler
+    - FBRetainCycleDetector
     - Kiwi
     - Masonry
     - OCMock
@@ -43,12 +54,15 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  FBAllocationTracker: dfdca3f71aceca6a85e95e3c6ec76a9785eba0f1
+  FBMemoryProfiler: 623fc5f8a61f7d02ec75c87e3b97c90f621d8b02
+  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   OCMock: ebe9ee1dca7fbed0ff9193ac0b3e2d8862ea56f6
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: e7f84c4f32955012a9a567786b9d32e145a339fc
+PODFILE CHECKSUM: 887505277499b1568be291506de887ec93e338b8
 
 COCOAPODS: 1.5.3

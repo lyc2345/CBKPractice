@@ -7,7 +7,10 @@ def common_pods
   pod 'SDWebImage'
   pod 'YYKit'
   pod 'Masonry'
-
+  pod 'FBRetainCycleDetector'
+  pod 'FBMemoryProfiler'
+  pod 'FBAllocationTracker'
+  
 end
 
 def setupiOSProject
