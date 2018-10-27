@@ -17,6 +17,8 @@ describe(@"Animal init with json", ^{
   __block NSDictionary *fakeJson;
 
   beforeAll(^{
+    
+    // Given
     fakeJson = @{
                  @"A_Name_Ch": @"pikachu",
                  @"A_Location": @"jp",
@@ -29,7 +31,10 @@ describe(@"Animal init with json", ^{
   
   it(@"Object's properties should match fake json", ^{
     
+    // When
     Animal *animal = [Animal modelWithJSON: fakeJson];
+    
+    // Then
     [[theValue(animal.name) should] equal: theValue(fakeJson[@"A_Name_Ch"])];
     [[theValue(animal.location) should] equal: theValue(fakeJson[@"A_Location"])];
     [[theValue(animal.behavior) should] equal: theValue(fakeJson[@"A_Behavior"])];

@@ -11,6 +11,7 @@
 		A4B048EC7CEF5D45EDBB0796 /* libPods-CBKPracticeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D01C6672BCEB6C67C2A368C /* libPods-CBKPracticeTests.a */; };
 		F6042E062181F84200D3C287 /* StretchyHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6042E052181F84200D3C287 /* StretchyHeaderViewController.m */; };
 		F6042E172182324E00D3C287 /* UITableView+RefreshKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F6042E162182324E00D3C287 /* UITableView+RefreshKit.m */; };
+		F622C87E21844C7F00E4ED6F /* AnimalCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F622C87D21844C7F00E4ED6F /* AnimalCellTests.m */; };
 		F62ACA8F217F56450056A836 /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = F62ACA8E217F56450056A836 /* Animal.m */; };
 		F62ACA92217F56DA0056A836 /* ZooDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F62ACA91217F56DA0056A836 /* ZooDataManager.m */; };
 		F66E837221842DEB00C166FE /* ZooDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F66E837121842DEB00C166FE /* ZooDataManagerTests.m */; };
@@ -28,6 +29,7 @@
 		F6FB7EEE2180E86600AD1F52 /* AnimalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB7EED2180E86600AD1F52 /* AnimalHeader.m */; };
 		F6FB7EF22180F5E400AD1F52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6FB7EF12180F5E400AD1F52 /* Images.xcassets */; };
 		F6FE189921843AE30059EF1B /* AnimalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FE189821843AE30059EF1B /* AnimalTests.m */; };
+		F6FE189D21843DF40059EF1B /* ListAnimalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FE189C21843DF40059EF1B /* ListAnimalsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		F6042E072181F9CB00D3C287 /* UIScrollViewBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIScrollViewBridge.h; sourceTree = "<group>"; };
 		F6042E152182324E00D3C287 /* UITableView+RefreshKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+RefreshKit.h"; sourceTree = "<group>"; };
 		F6042E162182324E00D3C287 /* UITableView+RefreshKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RefreshKit.m"; sourceTree = "<group>"; };
+		F622C87D21844C7F00E4ED6F /* AnimalCellTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalCellTests.m; sourceTree = "<group>"; };
 		F62ACA8D217F56450056A836 /* Animal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
 		F62ACA8E217F56450056A836 /* Animal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
 		F62ACA90217F56DA0056A836 /* ZooDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZooDataManager.h; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		F6FB7EED2180E86600AD1F52 /* AnimalHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalHeader.m; sourceTree = "<group>"; };
 		F6FB7EF12180F5E400AD1F52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F6FE189821843AE30059EF1B /* AnimalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalTests.m; sourceTree = "<group>"; };
+		F6FE189C21843DF40059EF1B /* ListAnimalsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListAnimalsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,22 @@
 			path = Zoo;
 			sourceTree = "<group>";
 		};
+		F622C87B21844C4C00E4ED6F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F6FE189C21843DF40059EF1B /* ListAnimalsViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F622C87C21844C6F00E4ED6F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F622C87D21844C7F00E4ED6F /* AnimalCellTests.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F681F86E217DFA70006E6D2B = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +268,8 @@
 			children = (
 				F6FE189B21843D2C0059EF1B /* Apis */,
 				F6FE189A21843D230059EF1B /* Models */,
+				F622C87C21844C6F00E4ED6F /* Views */,
+				F622C87B21844C4C00E4ED6F /* ViewControllers */,
 				F681F895217DFA72006E6D2B /* Info.plist */,
 			);
 			path = CBKPracticeTests;
@@ -431,6 +453,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6FE189D21843DF40059EF1B /* ListAnimalsViewController.m in Sources */,
+				F622C87E21844C7F00E4ED6F /* AnimalCellTests.m in Sources */,
 				F66E837221842DEB00C166FE /* ZooDataManagerTests.m in Sources */,
 				F6FE189921843AE30059EF1B /* AnimalTests.m in Sources */,
 			);

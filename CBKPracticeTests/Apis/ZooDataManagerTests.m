@@ -17,6 +17,8 @@ describe(@"ZooDataManager fetch", ^{
   __block ZooDataManager *manager;
 
   beforeAll(^{
+    
+    // Given
     manager = [ZooDataManager shared];
   });
 
@@ -24,11 +26,14 @@ describe(@"ZooDataManager fetch", ^{
     
     __block NSArray *animalList;
     
+    // When
     [manager fetch:^(NSError * _Nonnull error, NSArray * _Nonnull animals) {
       [[expectFutureValue(error) shouldEventually] beNil];
       animalList = animals;
       [[animals.firstObject should] beKindOfClass: [Animal class]];
     }];
+    
+    // Then
     [[expectFutureValue(animalList) shouldEventually] beNonNil];
   });
 });
